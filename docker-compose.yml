@@ -1,4 +1,5 @@
 # docker-compose.yml
+# docker-compose.yml
 version: '3'
 
 services:
@@ -14,10 +15,13 @@ services:
         image: postgres:14
         volumes:
             - postgres_data:/var/lib/postgresql/data/
+            - ./path/to/custom-config:/var/lib/postgresql/data/  # Add this line for custom config
         environment:
             POSTGRES_USER: postgres
             POSTGRES_PASSWORD: postgres
             POSTGRES_DB: postgres
+        command: ["postgres", "-c", "config_file=/var/lib/postgresql/data/postgresql.conf"]  # Add this line for custom config
 
 volumes:
   postgres_data:
+
