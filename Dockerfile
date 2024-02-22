@@ -1,6 +1,7 @@
 # Use an official Python runtime as a parent image
 FROM python:3.11.5-slim-bullseye
 
+
 # Set environment variables
 ENV PIP_DISABLE_PIP_VERSION_CHECK 1
 ENV PYTHONDONTWRITEBYTECODE 1
@@ -17,4 +18,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Specify the command to run on container start
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD gunicorn wigs_project.wsgi:application -b 0.0.0.0:8000
+
