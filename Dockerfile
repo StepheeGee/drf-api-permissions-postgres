@@ -18,7 +18,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the current directory contents into the container at /code
 COPY . .
 
-# Specify the command to run on container start
-CMD gunicorn wigs_project.wsgi:application -w 4 --log-level debug
+
 
 

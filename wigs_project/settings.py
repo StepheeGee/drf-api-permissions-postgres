@@ -30,7 +30,7 @@ SECRET_KEY ='django-insecure-az#pfov*&t_(4j2(kp_7zra1ezuj668emd%dsa#7d^^a+d2lzp'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'web']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
 
 
 # Application definition
@@ -87,21 +87,23 @@ WSGI_APPLICATION = 'wigs_project.wsgi.application'
 # settings.py
 
 # Use PostgreSQL as the default database
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "postgres",
+#         "USER": "postgres",
+#         "PASSWORD": "postgres",
+#         "HOST": "db", 
+#         "PORT": 5432,  # Default PostgreSQL port
+#     }
+# }
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "postgres",
-        "USER": "postgres",
-        "PASSWORD": "postgres",
-        "HOST": "db", 
-        "PORT": 5432,  # Default PostgreSQL port
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
-# Optional: You can set the database connection options if needed
-# For example, you might want to set 'CONN_MAX_AGE' to keep the connection open
-DATABASES["default"]["CONN_MAX_AGE"] = 600  # Set to 600 seconds (10 minutes) or as needed
-
 
 
 # Password validation
