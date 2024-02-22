@@ -4,7 +4,7 @@ version: '3'
 services:
     web:
         build: .
-        command: gunicorn wigs_project.asgi:application -w 4 -k uvicorn.workers.UvicornWorker --log-level debug
+        command: gunicorn wigs_project.wsgi:application -w 4 --log-level debug
         volumes:
             - .:/code
         ports:

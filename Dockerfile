@@ -1,4 +1,5 @@
-# Use an official Python runtime as a parent image
+# Dockerfile
+#Use an official Python runtime as a parent image
 FROM python:3.11.5-slim-bullseye
 
 
@@ -18,5 +19,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Specify the command to run on container start
-CMD gunicorn wigs_project.wsgi:application -b 0.0.0.0:8000
+CMD gunicorn wigs_project.wsgi:application -w 4 --log-level debug
+
 
