@@ -1,5 +1,7 @@
-# Use an official Python runtime as a parent image
+# Dockerfile
+#Use an official Python runtime as a parent image
 FROM python:3.11.5-slim-bullseye
+
 
 # Set environment variables
 ENV PIP_DISABLE_PIP_VERSION_CHECK 1
@@ -16,5 +18,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the current directory contents into the container at /code
 COPY . .
 
-# Specify the command to run on container start
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+
+
+
